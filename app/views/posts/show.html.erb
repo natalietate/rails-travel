@@ -1,6 +1,8 @@
 <h1>View post:</h1>
 <h2><%= @post.title %></h2>
+<p><%= image_tag @post.avatar.url(:medium) %></p>
 <p><%= @post.body %></p>
+
 
 <%= link_to 'Edit Post', edit_post_path %>
 <%= link_to 'Delete Post', post_path, method: :delete, data: {confirm: "Are you sure you want to delete this post?"} %>
