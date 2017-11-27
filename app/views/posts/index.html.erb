@@ -2,8 +2,9 @@
 
 <ul>
 <% @posts.each do |post| %>
-<li><%= link_to post.title, post_path(post.id) %></li>
+<%= link_to post.title, post_path(post.id) %><br>
 <%= image_tag post.avatar.url(:medium) %><br>
-<%= post.body %><br>
+<%= post.body %><br><br>
+<p>Posted by: <%= post.user.email %></p>
 <% end %>
 </ul>
