@@ -38,7 +38,9 @@ class PostsController < ApplicationController
 
   # this is a destroy request and doesn't need a view
   def destroy
-
+    get_post
+    @post.destroy
+    redirect_to root_path
   end
 
   private
