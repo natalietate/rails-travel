@@ -5,7 +5,6 @@
   <%= link_to post.title, post_path(post.id) %><br>
   <%= image_tag post.avatar.url(:medium) %><br>
   <p><%= post.body %><br>
-  Posted by: <%= post.user.email %></p>
   <br>
   <% end %>
 </ul>
