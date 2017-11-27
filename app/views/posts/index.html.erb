@@ -2,6 +2,7 @@
 
 <ul>
 <% @posts.each do |post| %>
+<%= image_tag post.avatar.url(:medium) %>
   <li><%= link_to post.title, post_path(post.id) %></li>
 <% end %>
 </ul>
