@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @posts = Post.all
   end
@@ -13,7 +15,7 @@ class PostsController < ApplicationController
 
   # create method is always a post method, so it doesn't need a view
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
     if @post.save
       redirect_to root_path
     else
