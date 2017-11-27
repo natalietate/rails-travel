@@ -21,7 +21,24 @@ class PostsController < ApplicationController
     end
   end
 
+  # this has a view
   def edit
+    get_post
+  end
+
+  # this is a patch request and doesn't need a view
+  def update
+    get_post
+    if @post.update(post_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
+  # this is a destroy request and doesn't need a view
+  def destroy
+
   end
 
   private
@@ -30,6 +47,6 @@ class PostsController < ApplicationController
   end
 
   def get_post
-  @post = Post.find(params[:id])
-end
+    @post = Post.find(params[:id])
+  end
 end
